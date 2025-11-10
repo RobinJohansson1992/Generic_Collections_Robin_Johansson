@@ -35,7 +35,7 @@ namespace Generic_Collections_Robin_Johansson
         // Method that displays the menu:
         public void ShowMenu()
         {
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine("MENY:");
             Console.ResetColor();
 
@@ -49,13 +49,20 @@ namespace Generic_Collections_Robin_Johansson
         public void CreateOrder(Order order)
         {
             OrderList.Enqueue(order);
+            Console.WriteLine($"Beställning nr {order.GetOrderNumber()} har lagts till.");
+
         }
 
-        //public void HandleOrder(Order order)
-        //{
-        //    OrderList.Dequeue(order);
+        // Method that removes the top order in the queue:
+        public void HandleOrder()
+        {
+            var order = OrderList.Peek();
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine($"Order {order.GetOrderNumber()} färdig.\n");
+            Console.ResetColor();
+            OrderList.Dequeue();
 
-        //}
+        }
 
         // Method that displays all current orders:
         public void ShowOrders()
@@ -69,14 +76,29 @@ namespace Generic_Collections_Robin_Johansson
             Devider();
         }
 
+        // Method that displays the next order on queue:
         public void ShowNextOrder()
         {
-            Console.WriteLine(OrderList.Peek());
+            Console.WriteLine("Nästa order i kön:\n");
+            var order = OrderList.Peek();
+            order.OrderInfo();
         }
 
+        // Method that displays how many orders are on queue:
         public void ShowOrderCount()
         {
-            Console.WriteLine(OrderList.Count);
+            if (OrderList.Count == 1)
+            {
+                Console.WriteLine($"Det är {OrderList.Count} order i kön.\n");
+            }
+            else if (OrderList.Count < 1)
+            {
+                Console.WriteLine($"Det finns inga ordrar i kön just nu.\n");
+            }
+            else
+            {
+                Console.WriteLine($"Det är {OrderList.Count} ordrar i kön.\n");
+            }
         }
 
     }
