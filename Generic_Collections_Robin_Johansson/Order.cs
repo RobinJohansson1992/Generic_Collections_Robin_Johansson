@@ -26,17 +26,17 @@ namespace Generic_Collections_Robin_Johansson
         // Method that writes out all the info about an order:
         public void OrderInfo()
         {
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine($"Order {_orderId}:");
             Console.ResetColor();
 
             foreach(var course in _orderItems)
             {
-                Console.WriteLine(course.Name);
+                Console.WriteLine($"1 st {course.Name}");
             }
 
             Console.WriteLine($"Summa: {TotalPrice()} kr");
-            Console.WriteLine($"Bord: {_tableNumber}\n");
+            Console.WriteLine($"Till bord nr {_tableNumber}\n");
             
         }
 
@@ -49,6 +49,11 @@ namespace Generic_Collections_Robin_Johansson
                 total += order.Price;
             }
             return total;
+        }
+
+        public int GetOrderNumber()
+        {
+            return _orderId;
         }
     }
 }
