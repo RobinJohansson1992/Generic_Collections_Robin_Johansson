@@ -35,13 +35,13 @@ namespace Generic_Collections_Robin_Johansson
                 Console.WriteLine($"1 st {course.Name}");
             }
 
-            Console.WriteLine($"Summa: {TotalPrice()} kr");
+            Console.WriteLine($"Summa: {OrderSum()} kr");
             Console.WriteLine($"Till bord nr {_tableNumber}\n");
             
         }
 
         // Method that adds the total price of an order:
-        public decimal TotalPrice()
+        public decimal OrderSum()
         {
             decimal total = 0;
             foreach (var order in _orderItems)

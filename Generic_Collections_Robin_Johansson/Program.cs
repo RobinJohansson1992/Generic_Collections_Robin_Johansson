@@ -18,9 +18,13 @@
             restaurantPumpkin.AddToMenu(course3);
             restaurantPumpkin.AddToMenu(course4);
 
+            // Devider that makes the console look nicer
             restaurantPumpkin.Devider();
 
+            // Displays the menu:
             restaurantPumpkin.ShowMenu();
+
+            restaurantPumpkin.Devider();
 
             // Create orders:
             var order1 = new Order([ course1, course2 ], 14);
@@ -36,6 +40,7 @@
 
             // Display current orders on queue:
             restaurantPumpkin.ShowOrders();
+            restaurantPumpkin.Devider();
 
             // Displays how many orders there are on queue:
             restaurantPumpkin.ShowOrderCount();

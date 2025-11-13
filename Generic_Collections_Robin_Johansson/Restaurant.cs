@@ -13,11 +13,8 @@ namespace Generic_Collections_Robin_Johansson
         
         private Queue<Order> OrderList = new Queue<Order>();
 
-        public Restaurant()
-        {
-           
-        }
-
+        
+        // A method to separate diferent parts in the console:
         public void Devider()
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -28,10 +25,10 @@ namespace Generic_Collections_Robin_Johansson
         // Method that adds a course to the menu:
         public void AddToMenu(MenuItem menuItem)
         {
-            Menu.Add(menuItem);
-            Console.WriteLine($"{menuItem.Name} har lagts till i menyn.");
+                Menu.Add(menuItem);
+                Console.WriteLine($"{menuItem.Name} har lagts till i menyn.");
         }
-
+           
         // Method that displays the menu:
         public void ShowMenu()
         {
@@ -41,10 +38,10 @@ namespace Generic_Collections_Robin_Johansson
 
             foreach (MenuItem course in Menu)
             {
-                Console.WriteLine(course.ToString());
+                Console.WriteLine($"{course.ID}. {course.ToString()}");
             }
-            Devider();
         }
+
         // Method for adding orders to the queue:
         public void CreateOrder(Order order)
         {
@@ -73,7 +70,6 @@ namespace Generic_Collections_Robin_Johansson
                 // Method orderinfo in class Order gets all the info about the order
                 order.OrderInfo();
             }
-            Devider();
         }
 
         // Method that displays the next order on queue:
